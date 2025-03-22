@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6e6cc;
+            color: #5a3d2b;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff3e0;
+            border-radius: 12px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #b35a1f;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #b35a1f;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        select {
+            background-color: #fff;
+        }
+        button {
+            background-color: #b35a1f;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #8a4018;
+        }
+        #resultado {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #8a4018;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Calculadora</h2>
+        <label for="a">Número A:</label>
+        <input type="number" id="a" placeholder="Ingrese el primer número">
+
+        <label for="b">Número B:</label>
+        <input type="number" id="b" placeholder="Ingrese el segundo número">
+
+        <label for="operacion">Operación:</label>
+        <select id="operacion">
+            <option value="sumar">Sumar</option>
+            <option value="restar">Restar</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="dividir">Dividir</option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcular() {
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const operacion = document.getElementById('operacion').value;
+
+            fetch('/calcular', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ a, b, operacion })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultado').innerText = 
+                    data.error ? "Error: " + data.error : "Resultado: " + data.resultado;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Contacto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <h1>Editar Contacto</h1>
+
+    <form action="/edit/<%= agenda.id %>" method="POST">
+        <input type="text" name="nombres" value="<%= agenda.nombres %>" required>
+        <input type="text" name="apellidos" value="<%= agenda.apellidos %>" required>
+        <input type="text" name="direccion" value="<%= agenda.direccion %>">
+        <input type="number" name="telefono" value="<%= agenda.telefono %>">
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <a href="/">⬅️ Volver</a>
+
+</body>
+</html>

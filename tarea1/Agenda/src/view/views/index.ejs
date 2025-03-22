@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contactos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <h1>Agenda de Contactos</h1>
+    <a href="/create">➕ Agregar Contacto</a>
+
+    <table>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+        <% agendas.forEach(contact => { %>
+        <tr>
+            <td><%= contact.nombres %></td>
+            <td><%= contact.apellidos %></td>
+            <td><%= contact.direccion %></td>
+            <td><%= contact.telefono %></td>
+            <td>
+                <a href="/edit/<%= contact.id %>">✏️ Editar</a>
+                <a href="/delete/<%= contact.id %>">❌ Eliminar</a>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+
+</body>
+</html>
+
