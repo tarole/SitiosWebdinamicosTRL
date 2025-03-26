@@ -1,0 +1,190 @@
+/* ======= Estilos Generales ======= */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 20px;
+}
+
+/* ======= Estilo del Título ======= */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* ======= Botón Agregar Cliente ======= */
+.add-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* ======= Estilo de la Tabla ======= */
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tr:hover {
+    background: #f1f1f1;
+    transition: 0.3s ease;
+}
+
+/* ======= Botones de Acción ======= */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.edit-btn, .delete-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Botón Editar */
+.edit-btn {
+    background: #ffc107;
+    color: #333;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+/* Botón Eliminar */
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+/* ======= Estilos del Formulario ======= */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Botón Enviar */
+.submit-btn {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Botón Volver */
+.no-link {
+    padding-bottom: 100px;
+    text-decoration: none;  /* Sin subrayado */
+    color: inherit;  /* Usa el color normal del texto */
+    font-weight: bold;  /* Opcional */
+}
+
+.no-link:hover {
+    color: #333; /* Cambia el color en hover si quieres */
+}
+
+.no-link2 {
+    padding-bottom: 100px;
+    padding-right: 50%;
+    text-decoration: none;  /* Sin subrayado */
+    color: inherit;  /* Usa el color normal del texto */
+    font-weight: bold;  /* Opcional */
+}

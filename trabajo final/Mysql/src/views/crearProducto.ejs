@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="/css/stylesM.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Agregar Producto</h2>
+        <form action="/producto/crear" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" placeholder="Precio" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="detalle">Detalle:</label>
+                <textarea name="detalle" placeholder="Detalle" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" name="imagen" accept="image/jpeg,image/png,image/gif">
+            </div>
+            <div class="form-group">
+                <label for="Imagen2">Imagen 2:</label>
+                <input type="file" name="imagen2" accept="image/jpeg,image/png,image/gif">
+            </div>
+            <button type="submit" class="submit-btn">💾 Guardar</button>
+        </form>
+        <br>
+        <a href="/productos" class="no-link">⬅️ Volver a lista</a>
+    </div>
+</body>
+
+</html>

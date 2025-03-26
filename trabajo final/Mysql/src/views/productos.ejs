@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="/css/stylesM.css">
+</head>
+
+<body>
+    <h1>CRUD MySql DB</h1>
+    <h2>Lista de Productos</h2>
+    <a href="/producto/crear" class="add-btn">➕ Agregar Producto</a>
+    <br>
+    <a href="/" class="no-link2">⬅️ Volver a inicio</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Imagen 2</th>
+                <th>Detalle</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (productos.length> 0) { %>
+                <% productos.forEach(producto=> { %>
+                    <tr>
+                        <td>
+                            <%= producto.id %>
+                        </td>
+                        <td>
+                            <%= producto.nombre %>
+                        </td>
+                        <td>
+                            <%= producto.precio %>
+                        </td>
+                        <td>
+                            <% if (producto.imagen) { %>
+                                <img src="/img/<%= producto.imagen %>" height="50" alt="<%= producto.imagen %>">
+                                <% } %>
+                        </td>
+                        <td>
+                            <% if (producto.imagen2) { %>
+                                <img src="/img/<%= producto.imagen2 %>" height="50" alt="<%= producto.imagen2 %>">
+                                <% } %>
+                        </td>
+                        <td>
+                            <%= producto.detalle %>
+                        </td>
+                        <td class="action-buttons">
+                            <a href="/producto/editar/<%= producto.id %>" class="edit-btn">✏️ Editar</a>
+                            <form action="/producto/<%= producto.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="delete-btn">❌ Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="6" style="text-align: center;">No hay registros disponibles</td>
+                            </tr>
+                            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>

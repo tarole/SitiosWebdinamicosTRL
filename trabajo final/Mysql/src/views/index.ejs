@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="img/Escudo de Pando.png" alt="Logotipo">
+            <h1>Planificación</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="productos">CRUD Productos</a></li>
+                <li><a href="#carrito" onclick="alternarCarrito()">Carrito</a></li>
+                <li><a href="https://pando.gob.bo/" target="_blank">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="productos" class="productos">
+            <h1>Catálogo de Productos</h1>
+            <div class="grid">
+                <!-- Más productos -->
+                <% if (productos.length> 0) { %>
+                    <% productos.forEach(producto=> { %>
+                        <div class="producto"
+                            onclick="abrirModalDetalle('<%= producto.nombre %>', '/<%= producto.imagen %>', '<%= producto.detalle %>', '<%= producto.precio %>')">
+                            <div class="galeria">
+                                <img src="/img/<%= producto.imagen %>" alt="<%= producto.imagen %>" class="miniatura"
+                                    onclick="abrirModal(event, '/img/<%= producto.imagen %>')">
+                                <img src="/img/<%= producto.imagen2 %>" alt="<%= producto.imagen2 %>" class="miniatura"
+                                    onclick="abrirModal(event, '/img/<%= producto.imagen2 %>')">
+                            </div>
+                            <h2>
+                                <%= producto.nombre %>
+                            </h2>
+                            <p class="descripcion">
+                                <%= producto.detalle %>
+                            </p>
+                            <p class="precio">B$<%= producto.precio %>
+                            </p>
+                            <button class="btn-carrito"
+                                onclick="agregarAlCarrito(event, '<%= producto.nombre %>', '<%= producto.precio %>')">Añadir
+                                al carrito</button>
+                            <!-- <button class="btn-carrito" onclick="abrirModalDetalle('<%= producto.nombre %>', '<%= producto.imagen %>', '<%= producto.detalle %>', '<%= producto.precio %>')">Ver Detalles</button> -->
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="producto">
+                                    <div class="galeria">
+                                        <img src="/img/default.png" alt="Producto Imagen" class="miniatura"
+                                            onclick="abrirModal(event, '/img/default.png')">
+                                        <img src="/img/default.png" alt="Producto Imagen 2" class="miniatura"
+                                            onclick="abrirModal(event, '/img/default.png')">
+                                    </div>
+                                    <h2>Sin Producto</h2>
+                                    <p class="descripcion">No hay registros disponibles.</p>
+                                    <p class="precio">B$0</p>
+                                    <button class="btn-carrito"><a href="productos"
+                                            class="btn-carrito">Productos</a></button>
+                                </div>
+                                <% } %>
+
+            </div>
+            <!-- Modal de Imagen -->
+            <div id="modal" class="modal">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <img id="modal-imagen" class="modal-contenido">
+            </div>
+            <!-- Modal de Detalles del Producto -->
+            <div id="modal-detalle" class="modal">
+                <div class="modal-contenido">
+                    <span class="cerrar" onclick="cerrarModalDetalle()">&times;</span>
+                    <h1>Detalles del Producto</h1>
+                    <h2 id="modal-titulo"></h2>
+                    <img id="modal-imagen-detalle" class="modal-img">
+                    <p id="modal-descripcion"></p>
+                    <p id="modal-precio"></p>
+                </div>
+            </div>
+        </section>
+        <!-- Carrito de Compra -->
+        <div id="carrito-contenedor" class="carrito-flotante minimizado">
+            <button id="carrito-boton" onclick="alternarCarrito()">
+                <span id="cantidad-total">0</span>
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <div id="carrito-expandido">
+                <h3>Carrito de Compras</h3>
+                <ul id="lista-carrito"></ul>
+                <p id="total-precio">Total: B$0</p>
+                <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 GAD Pando. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="https://www.facebook.com/PapitoRichterPando" target="_blank"><i class="fab fa-facebook"></i> Facebook</a> | <a
+                href="https://www.instagram.com/papitorichtergobernador/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            | <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </footer>
+    <script src="/js/funciones.js"></script>
+</body>
+
+</html>
